@@ -7,54 +7,23 @@ var espacio;
 var tablero;
 
 
+var transparent={image: "img/A.jpg",ok: false}
+
 ////////////////////////Objetos(adivinanzas)
 
 var cilantro ={aleman: "Koriander", answer: "cilantro", image:"img/cil.jpg", ok:false};
 var cebolla = {aleman: "Zwiebel", answer: "cebolla", image:"img/ceb.jpg", ok:false};
 var chuleta ={aleman: "Schweinekotelett",answer: "chuleta de cerdo", image:"img/chul.jpg", ok:false};
 var col ={aleman: "Kraut",answer: "col",image: "img/col.jpg", ok:false};
-var carne ={
+var carne ={aleman: "Fleisch", answer: "carne",image:"img/carne.jpg", ok:false};
+var res ={aleman: "Rind",answer: "res", image:"img/carne.jpg", ok:false};
+var lata={aleman: "Dose",answer: "lata",image: "img/lata.jpg", ok:false};
+var bolsa={aleman: "Beutel",answer: "bolsa",image: "img/bolsa.jpg", ok:false};
+var pieza={aleman: "Stücke",answer: "pieza",image: "img/pieza.jpg", ok:false};
+var barra={aleman: "Tafel",answer: "barra",image:"img/barra.JPG", ok:false};
+var puta={aleman:"hure",answer:"prostituta",answer2:"puta",image:"img/a2.jpg", ok:false}
 
-	aleman: "Fleisch",
-	answer: "img/carne",
-	image:"carne.jpg", ok:false
 
-};
-
-var res ={
-
-	aleman: "Rind",
-	answer: "res",
-	image: "img/carne7.jpg", ok:false
-
-};
-
-var lata={
-	aleman: "Dose",
-	answer: "lata",
-	image: "img/lata.jpg", ok:false
-}
-
-var bolsa={
-	aleman: "Beutel",
-	answer: "bolsa",
-	image: "img/bolsa.jpg", ok:false
-}
-var pieza={
-	aleman: "Stücke",
-	answer: "pieza",
-	image: "img/pieza.jpg", ok:false
-}
-var barra={
-	aleman: "Tafel",
-	answer: "barra",
-	image:"img/barra.JPG", ok:false
-}
-
-var transparent={
-	image: "img/A.jpg",
-	ok: false
-}
 
 
 ///////////////Selector de adivinanzas
@@ -63,7 +32,7 @@ var transparent={
 
 function random(){
 
-var random= Math.round(Math.random()*9);
+var random= Math.round(Math.random()*10);
 return random;
 
 }
@@ -92,7 +61,7 @@ function inicio(){
 }
 
 var adivinanzas=[cilantro.aleman, cebolla.aleman, chuleta.aleman, col.aleman, carne.aleman, 
-res.aleman, lata.aleman, bolsa.aleman, pieza.aleman, barra.aleman];
+res.aleman, lata.aleman, bolsa.aleman, pieza.aleman, barra.aleman, puta.aleman];
 
 ///////////////////condiciones
 
@@ -120,6 +89,10 @@ var solucion= respuesta.value;
 	}else if(actual == pieza.aleman && solucion==pieza.answer){
 	puntuacion();
 	}else if(actual == barra.aleman && solucion==barra.answer){
+	puntuacion();
+	}else if(actual == puta.aleman && solucion==puta.answer){
+	puntuacion();
+	}else if(actual == puta.aleman && solucion==puta.answer2){
 	puntuacion();
 	}else{
 		error();
@@ -180,6 +153,10 @@ function mostrar(){
 	barra.imagen.src= barra.image;	
 	barra.imagen.onload= confirmar;
 
+	puta.imagen= new Image();
+	puta.imagen.src= puta.image;
+	puta.imagen.onload= confirmar;
+
 	transparent.imagen= new Image();
 	transparent.imagen.src= transparent.image;	
 	transparent.imagen.onload= confirmar;
@@ -198,6 +175,7 @@ function confirmar(){
 	pieza.ok = true;
 	barra.ok = true;
 	transparent.ok= true;
+	puta.ok=true;
 	dibujar();
 
 }
@@ -246,6 +224,10 @@ function dibujar(){
 		
 	tablero.drawImage(barra.imagen, 0,0);
 
+	}else if(actual == puta.aleman){
+	
+	tablero.drawImage(puta.imagen, 0,0);
+	
 	}
 
 	setTimeout(function(){
