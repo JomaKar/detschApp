@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="adivi2.js"></script>
+	<title>Fun Language</title>
+</head>
+<body>
+
+<header class="header">
+		<div class="header-mobile">
+			<h2 class="header-logo">Logo</h2>
+			<button id="btn-nav" class="header-btn-nav">Menu</button>
+		</div>
+		<nav class="header-menu">
+			<ul id="list" class="header-menu-list">
+				<li class="header-menu-list-item">
+					<a href="#">Inicio</a>
+				</li>
+				<li class="header-menu-list-item">
+					<a href="#">Acerca</a>
+				</li>
+				<li class="header-menu-list-item">
+					<a href="#">Blog</a>
+				</li>				
+				<li class="header-menu-list-item">
+					<a href="#">Contacto</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+<div class="container">
+	<div class="row">
+		<div class="col-12 center">
+				<div id="encabezado"> <h1>Juguemos adivinanzas</h1> </div>
+		</div>
+		<div class="col-12 center">
+				<input id="respuesta" type="text" placeholder="pon aquí tu respuesta"></input>
+		</div>
+
+		<div class="row">
+			<div class="col-6 end">
+				<button id="submit">Adivina</button>
+			</div>
+			<div class="col-6">
+				<input id="pista" type="button" value="Pista"></input>
+			</div>		
+			<article class="col-12 center">
+				<input id="der" name="articulo" type="radio" value="der">Der
+				<input id="das" name="articulo" type="radio" value="das">Das
+				<input id="die" name="articulo" type="radio" value="die">Die
+			</article>	
+		</div>
+		<div class="row">
+			<canvas id="canvas" width= "700" height="400"></canvas>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<h2>Puntuación: <span id="score"> </span> </h2>
+</footer>
+
+<script type="text/javascript">
+	
+(function(){
+	var btnNav= document.getElementById('btn-nav');
+	var list= document.getElementById('list');
+
+
+btnNav.addEventListener("click",function(){
+	list.classList.toggle('header-menu-list--show');
+})	
+
+}());
+
+</script>
+
+</body>
+</html>
